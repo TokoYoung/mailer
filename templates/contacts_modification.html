@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<table class="table user-list">
+    <thead>
+        
+        <tr>
+            <th class="text-center">Modify Contacts<span></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <a href="contacts_modification?id={{data['id']}}" class="user-link">{{data["full_name"]}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form class="form-inline" action="/contacts_modification?id={{data['id']}}" method="POST">
+                    <div class="form-group">
+                        <label class="sr-only" for="answer">Answer:</label>
+                        <input type="text" name="answer" class="form-control" id="answer" placeholder="Type The Answer" required value="{{data['response']}}">
+                    </div>
+                    <button type="submit" class="btn btn-default">Save</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
