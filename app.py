@@ -15,8 +15,8 @@ def add_contacts():
     if request.method == "GET":
         return render_template("add_contacts.html")
     else:
-        name = request.form["full_name"]
-        companyid = request.form["companyid"]
+        name = request.form["name"]
+        companyid = request.form["company"]
 
         insertion = {
             "full_name" : name,
@@ -83,12 +83,10 @@ def delete_contact():
         _route = request.args.get("route")
         Delete_One(_id)
         
-    #     if _route == "answered":
-    #         return redirect("/messages_answered")
-    #     else:    
-    #         return redirect("/messages_unanswered")
-    # else:
-    #     return "It does not take post request"
+        if _route == "deleted":
+            return redirect("/contacts_modification")
+        else:    
+            return redirect("/")
 
 
 if __name__ == '__main__':

@@ -88,9 +88,9 @@ def Delete_One(_id):
     conn = psycopg2.connect(database=conf["database"], user = conf["user"], password = conf["password"], host = conf["host"], port = conf["port"])
     cur = conn.cursor()
 
-    cur.execute("DELETE from conversation where ID = %s;", [_id])
+    cur.execute("DELETE from main_users where ID = %s;", [_id])
     conn.commit()
-    print("Total number of rows deleted :", cur.rowcount)
+    print("User  deleted :", cur.rowcount)
     conn.close()
 
 
